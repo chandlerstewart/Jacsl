@@ -4,6 +4,9 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
+import net.minecraft.item.ToolMaterial;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -13,14 +16,45 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import java.util.List;
 
-public class KnockbackItem extends Item {
+public class Knockbackium implements ToolMaterial {
 
+    public static final Knockbackium INSTANCE = new Knockbackium();
 
-    public KnockbackItem(Settings settings) {
-        super(settings);
+    @Override
+    public int getDurability() {
+        return 1000;
     }
 
     @Override
+    public float getMiningSpeedMultiplier() {
+        return 5.0F;
+    }
+
+    @Override
+    public float getAttackDamage() {
+        return 50.0F;
+    }
+
+    @Override
+    public int getMiningLevel() {
+        return 3;
+    }
+
+    @Override
+    public int getEnchantability() {
+        return 50;
+    }
+
+    @Override
+    public Ingredient getRepairIngredient() {
+        return Ingredient.ofItems(Items.DIAMOND);
+    }
+
+    /*public Knockbackium(Settings settings) {
+        super(settings);
+    }*/
+
+    /*@Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand){
 
         double xVel = playerEntity.getVelocity().x;
@@ -32,13 +66,13 @@ public class KnockbackItem extends Item {
         playerEntity.playSound(SoundEvents.ENTITY_PLAYER_ATTACK_SWEEP, 1.0f, pitch);
 
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
         tooltip.add(new TranslatableText("Wack people."));
         tooltip.add(new TranslatableText("HARD").formatted(Formatting.DARK_RED));
-    }
+    }*/
 
 }
