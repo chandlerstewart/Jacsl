@@ -3,6 +3,7 @@ package net.fabricmc.jacsl;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.jacsl.items.KnockbackItem;
 import net.fabricmc.jacsl.items.NewItem;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
@@ -22,6 +23,8 @@ public class Main implements ModInitializer {
 
 	public static final Item NEW_ITEM = new NewItem(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
+	public static final Item KNOCKBACK_ITEM = new KnockbackItem(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+
 
 	@Override
 	public void onInitialize() {
@@ -30,6 +33,7 @@ public class Main implements ModInitializer {
 		// Proceed with mild caution.
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "new_item"), NEW_ITEM);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_ITEM);
 		System.out.println("Hello Fabric world!");
 	}
 }
