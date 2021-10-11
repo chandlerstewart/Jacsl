@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "jacsl:item/teleport_item"
+    "layer0": "jacsl:item/disk_of_teleportation"
   }
 }

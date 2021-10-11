@@ -17,9 +17,9 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class  TeleportItem extends Item {
+public class DiskOfTeleportation extends Item {
 
-    public TeleportItem(Item.Settings settings) {
+    public DiskOfTeleportation(Item.Settings settings) {
         super(settings);
     }
 
@@ -42,8 +42,6 @@ public class  TeleportItem extends Item {
             playerEntity.sendMessage(new LiteralText("Teleportation on Cooldown"), false);
         }
         //}
-
-
 
         return TypedActionResult.success(playerEntity.getStackInHand(hand), world.isClient());
     }

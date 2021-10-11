@@ -1,6 +1,6 @@
 {
   "itemGroup.jacsl.general": "§3Tutorial Mod Items",
   "item.jacsl.new_item": "§3Example Item",
-  "item.jacsl.teleport_item": "§3Teleport Item"
+  "item.jacsl.disk_of_teleportation": "§3Disk of Teleportation",
   "item.jacsl.knockback_item": "§4Knockbackium"
 }
