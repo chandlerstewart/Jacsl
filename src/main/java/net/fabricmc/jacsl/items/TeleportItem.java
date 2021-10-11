@@ -1,24 +1,23 @@
 package net.fabricmc.jacsl.items;
 
-import net.minecraft.client.MinecraftClient;
+import net.fabricmc.jacsl.Main;
+import net.fabricmc.jacsl.entities.TeleportItemEntity;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 import java.util.List;
 
-public class TeleportItem extends Item {
+public class  TeleportItem extends Item {
 
     public TeleportItem(Item.Settings settings) {
         super(settings);
@@ -26,24 +25,32 @@ public class TeleportItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand){
-        float pitch = 0.5f/(RANDOM.nextFloat()*.4f + .8f);
+        float pitch = 0.5f/(RANDOM.nextFloat()*.2f + .5f);
+        ItemStack itemStack = playerEntity.getStackInHand(hand);
 
-        MinecraftClient client = MinecraftClient.getInstance();
 
-        double xpos = client.crosshairTarget.getPos().x;
-        double ypos = client.crosshairTarget.getPos().y;
-        double zpos = client.crosshairTarget.getPos().z;
+        //if (!world.isClient) {
+        if (!playerEntity.getItemCooldownManager().isCoolingDown(Main.TELEPORT_ITEM)) {
+            playerEntity.getItemCooldownManager().set(this, 100);
+            TeleportItemEntity teleportItemEntity = new TeleportItemEntity(world, playerEntity);
+            teleportItemEntity.setItem(itemStack);
+            teleportItemEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F, .5F, .5F);
+            world.spawnEntity(teleportItemEntity);
+            playerEntity.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0f, pitch);
+        } else {
+            // add in message to send cooldown notification to player, below line doesnt seem to work
+            playerEntity.sendMessage(new LiteralText("Teleportation on Cooldown"), false);
+        }
+        //}
 
-        playerEntity.teleport(xpos, ypos, zpos, true);
-        playerEntity.playSound(SoundEvents.BLOCK_IRON_DOOR_CLOSE, 1.0f, pitch);
 
-        return TypedActionResult.success(playerEntity.getStackInHand(hand));
+
+        return TypedActionResult.success(playerEntity.getStackInHand(hand), world.isClient());
     }
 
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
-        tooltip.add(new TranslatableText("Example tooltip"));
-        tooltip.add(new TranslatableText("Example colored tooltip").formatted(Formatting.GOLD));
+        tooltip.add(new TranslatableText("Step 1: Chuck this, Step 2: teleport").formatted(Formatting.GOLD));
     }
 }
