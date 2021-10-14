@@ -35,7 +35,7 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "new_item"), NEW_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "disk_of_teleportation"), TELEPORT_ITEM);
-		Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_SWORD);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_sword"), KNOCKBACK_SWORD);
 
 		System.out.println("Hello Fabric world!");
 	}
