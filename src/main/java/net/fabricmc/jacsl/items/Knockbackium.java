@@ -47,7 +47,7 @@ public class Knockbackium implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.DIAMOND);
+        return Ingredient.ofItems(Items.IRON_INGOT);
     }
 
     /*public Knockbackium(Settings settings) {
