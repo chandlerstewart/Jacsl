@@ -1,20 +1,8 @@
-package net.fabricmc.jacsl.items;
+package net.fabricmc.jacsl.materials;
 
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
-import java.util.List;
 
 public class Knockbackium implements ToolMaterial {
 
@@ -22,7 +10,7 @@ public class Knockbackium implements ToolMaterial {
 
     @Override
     public int getDurability() {
-        return 1000;
+        return 1200;
     }
 
     @Override
