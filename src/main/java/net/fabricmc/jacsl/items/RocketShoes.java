@@ -28,4 +28,9 @@ public class RocketShoes extends Item{
         playerEntity.playSound(SoundEvents.BLOCK_ANCIENT_DEBRIS_BREAK, 1.0F, 1.0F);
         return TypedActionResult.success(playerEntity.getStackInHand(hand));
     }
+
+    public void appendToolTip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
+    {
+        tooltip.add(new TranslatableText("These shoes can make you fly"));
+    }
 }
