@@ -47,7 +47,7 @@ public class PackedSnowballEntity extends ThrownItemEntity {
 
 @Override
     protected Item getDefaultItem() {
-        return Main.packedSnowballItem;
+        return null;
     }
     /*
 
