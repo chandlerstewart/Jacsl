@@ -29,7 +29,6 @@ public class TeleportItemEntity extends ThrownItemEntity {
         double ypos = hitResult.getPos().y;
         double zpos = hitResult.getPos().z;
 
-        SnowballEntity
 
         playerEntity.teleport(xpos, ypos, zpos);
 
