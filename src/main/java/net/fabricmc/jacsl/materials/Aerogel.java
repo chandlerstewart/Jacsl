@@ -4,9 +4,9 @@ import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
-public class Knockbackium implements ToolMaterial {
+public class Aerogel implements ToolMaterial {
 
-    public static final Knockbackium INSTANCE = new Knockbackium();
+    public static final Aerogel INSTANCE = new Aerogel();
 
     @Override
     public int getDurability() {
@@ -20,7 +20,7 @@ public class Knockbackium implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 50.0F;
+        return 0.25F;
     }
 
     @Override
@@ -38,7 +38,7 @@ public class Knockbackium implements ToolMaterial {
         return Ingredient.ofItems(Items.IRON_INGOT);
     }
 
-    /*public Knockbackium(Settings settings) {
+    /*public Aerogel(Settings settings) {
         super(settings);
     }*/
 
