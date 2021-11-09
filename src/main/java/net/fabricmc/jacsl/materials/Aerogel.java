@@ -1,28 +1,16 @@
-package net.fabricmc.jacsl.items;
+package net.fabricmc.jacsl.materials;
 
-import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
-import net.minecraft.util.Formatting;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
-import net.minecraft.world.World;
-import java.util.List;
 
-public class Knockbackium implements ToolMaterial {
+public class Aerogel implements ToolMaterial {
 
-    public static final Knockbackium INSTANCE = new Knockbackium();
+    public static final Aerogel INSTANCE = new Aerogel();
 
     @Override
     public int getDurability() {
-        return 1000;
+        return 1200;
     }
 
     @Override
@@ -32,7 +20,7 @@ public class Knockbackium implements ToolMaterial {
 
     @Override
     public float getAttackDamage() {
-        return 50.0F;
+        return 0.25F;
     }
 
     @Override
@@ -47,10 +35,10 @@ public class Knockbackium implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.DIAMOND);
+        return Ingredient.ofItems(Items.IRON_INGOT);
     }
 
-    /*public Knockbackium(Settings settings) {
+    /*public Aerogel(Settings settings) {
         super(settings);
     }*/
 

@@ -10,10 +10,16 @@ import net.fabricmc.jacsl.items.PackedSnowballItem;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.jacsl.enchantments.KnockbackiumEnchantment;
+import net.fabricmc.jacsl.items.*;
+import net.fabricmc.jacsl.materials.Aerogel;
+import net.minecraft.block.Block;
+import net.minecraft.block.Material;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.fabricmc.jacsl.items.Knockbackium;
 import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -32,7 +38,15 @@ public class Main implements ModInitializer {
 
 	public static final Item NEW_ITEM = new NewItem(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item TELEPORT_ITEM = new DiskOfTeleportation(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
-	public static final ToolItem KNOCKBACK_SWORD = new SwordItem(Knockbackium.INSTANCE, 10, 10.0F, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+	public static final Item AEROGEL_CUBE = new AerogelCube(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+	public static final Item ROCKET_SHOES = new RocketShoes(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+
+
+	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, 2f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+
+	public static final Block AEROGEL_CHUNKS = new Block(FabricBlockSettings.of(Material.METAL).hardness(1.0f));
+
+	private static Enchantment KNOCKBACK_ENCHANTMENT = Registry.register(Registry.ENCHANTMENT, new Identifier(MODID, "knockbackium_enchantment"), new KnockbackiumEnchantment());
 
 	public static final Item packedSnowballItem = new PackedSnowballItem(new FabricItemSettings().group(ItemGroup.MISC).maxCount(16));
 	@Override
@@ -45,6 +59,14 @@ public class Main implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MODID, "disk_of_teleportation"), TELEPORT_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_SWORD);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "packed_snowball"), packedSnowballItem);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_sword"), AEROGEL_SWORD);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_cube"), AEROGEL_CUBE);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "rocket_shoes"), ROCKET_SHOES);
+
+		//Registering the aerogel blocks
+		Registry.register(Registry.BLOCK, new Identifier(MODID, "aerogel_chunks"), AEROGEL_CHUNKS);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_chunks"), new BlockItem(AEROGEL_CHUNKS, new FabricItemSettings().group(Main.NEW_ITEM_GROUP)));
+
 		System.out.println("Hello Fabric world!");
 	}
 }
