@@ -7,8 +7,10 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.jacsl.items.NewItem;
 import net.fabricmc.jacsl.items.DiskOfTeleportation;
 import net.fabricmc.jacsl.items.PackedSnowballItem;
+import net.fabricmc.jacsl.materials.Rocket;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.SpawnGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.jacsl.enchantments.KnockbackiumEnchantment;
@@ -39,8 +41,8 @@ public class Main implements ModInitializer {
 	public static final Item NEW_ITEM = new NewItem(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item TELEPORT_ITEM = new DiskOfTeleportation(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item AEROGEL_CUBE = new AerogelCube(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
-	public static final Item ROCKET_SHOES = new RocketShoes(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
-
+	//public static final Item ROCKET_SHOES = new RocketShoes(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+	public static final Item ROCKET_SHOES = new RocketShoes(Rocket.shoes, EquipmentSlot.FEET,new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
 	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, 2f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
@@ -57,7 +59,8 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "new_item"), NEW_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "disk_of_teleportation"), TELEPORT_ITEM);
-		Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_SWORD);
+		//Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_SWORD);
+		//Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_ENCHANTMENT);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "packed_snowball"), packedSnowballItem);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_sword"), AEROGEL_SWORD);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_cube"), AEROGEL_CUBE);
