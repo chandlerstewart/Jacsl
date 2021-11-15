@@ -41,7 +41,7 @@ public class Main implements ModInitializer {
 	//public static final Item ROCKET_SHOES = new RocketShoes(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item ROCKET_SHOES = new RocketShoes(ArmorMaterials.GOLD,EquipmentSlot.FEET,new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
-	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, 2f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, -0.5f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
 	public static final Block AEROGEL_CHUNKS = new Block(FabricBlockSettings.of(Material.METAL).hardness(1.0f));
 
@@ -56,8 +56,6 @@ public class Main implements ModInitializer {
 
 		Registry.register(Registry.ITEM, new Identifier(MODID, "new_item"), NEW_ITEM);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "disk_of_teleportation"), TELEPORT_ITEM);
-		//Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_SWORD);
-		//Registry.register(Registry.ITEM, new Identifier(MODID, "knockback_item"), KNOCKBACK_ENCHANTMENT);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "packed_snowball"), packedSnowballItem);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_sword"), AEROGEL_SWORD);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_cube"), AEROGEL_CUBE);

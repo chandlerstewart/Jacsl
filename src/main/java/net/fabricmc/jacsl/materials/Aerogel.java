@@ -1,5 +1,6 @@
 package net.fabricmc.jacsl.materials;
 
+import net.fabricmc.jacsl.Main;
 import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -35,7 +36,7 @@ public class Aerogel implements ToolMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.IRON_INGOT);
+        return Ingredient.ofItems(Main.AEROGEL_CUBE);
     }
 
     /*public Aerogel(Settings settings) {
