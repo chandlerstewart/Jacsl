@@ -9,6 +9,7 @@ import net.minecraft.sound.SoundEvents;
 public class Rocket implements ArmorMaterial
 {
 
+
     @Override
     public int getDurability(EquipmentSlot slot) {
         return 100;
