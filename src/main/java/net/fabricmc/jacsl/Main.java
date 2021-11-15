@@ -42,7 +42,6 @@ public class Main implements ModInitializer {
 	public static final ArmorMaterial ROCKET = new Rocket();
 	public static final Item ROCKET_SHOES = new RocketShoes(ROCKET, EquipmentSlot.FEET, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
-
 	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, 2f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
 	public static final Block AEROGEL_CHUNKS = new Block(FabricBlockSettings.of(Material.METAL).hardness(1.0f));
