@@ -1,6 +1,6 @@
 package net.fabricmc.jacsl.items;
 
-import net.fabricmc.jacsl.materials.Rocket;
+//import net.fabricmc.jacsl.materials.Rocket;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
