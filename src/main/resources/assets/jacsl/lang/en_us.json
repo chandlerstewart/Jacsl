@@ -7,5 +7,7 @@
   "item.jacsl.rocket_shoes": "§3Rocket Shoes",
   "item.jacsl.aerogel_cube": "§9Aerogel Cube",
   "enchantment.jacsl.knockbackium_enchantment": "§4Knockbackium Enchantment",
+  "enchantment.jacsl.disk_of_teleportation_enchantment_explosion": "§5Disk Of Teleportation Explosion",
+  "enchantment.jacsl.disk_of_teleportation_enchantment_knockback": "§5Disk of Teleportation Knockback",
   "block.jacsl.aerogel_chunks": "§9Aerogel Chunks"
 }
