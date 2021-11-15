@@ -23,24 +23,17 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 import net.fabricmc.jacsl.Main;
 
-/*
-We will be creating a custom snowball-like projectile that deals some nasty debuffs.
-Since this is a thrown projectile, we will extending ThrownItemEntity.
-Some ThrownItemEntities include:
-- Snowballs
-- Ender Pearls
- */
-public class PackedSnowballEntity extends ThrownItemEntity {
-    public PackedSnowballEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+public class HotCheetoEntity extends ThrownItemEntity {
+    public HotCheetoEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public PackedSnowballEntity(World world, LivingEntity owner) {
+    public HotCheetoEntity(World world, LivingEntity owner) {
 
         super(EntityType.SNOWBALL, owner, world);
     }
 
-    public PackedSnowballEntity(World world, double x, double y, double z) {
+    public HotCheetoEntity(World world, double x, double y, double z) {
         super(EntityType.SNOWBALL, x, y, z, world);
     }
 
@@ -65,10 +58,10 @@ public class PackedSnowballEntity extends ThrownItemEntity {
         entity.damage(DamageSource.thrownProjectile(this, this.getOwner()), (float)i); // deals damage
 
         if (entity instanceof LivingEntity) { // checks if entity is an instance of LivingEntity (meaning it is not a boat or minecart)
-            ((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.WITHER, 20 * 3, 10))); // applies a status effect
+            ((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.WITHER, 20 * 10, 13000))); // applies a status effect
           //  ((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 3, 2))); // applies a status effect
             //((LivingEntity) entity).addStatusEffect((new StatusEffectInstance(StatusEffects.POISON, 20 * 3, 1))); // applies a status effect
-            entity.playSound(SoundEvents.BLOCK_SNOW_STEP, 2F, 1F); // plays a sound for the entity hit only
+            entity.playSound(SoundEvents.BLOCK_LAVA_EXTINGUISH, 2F, 1F); // plays a sound for the entity hit only
         }
     }
 
