@@ -19,7 +19,6 @@ public class ClientEntrypoint implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-
         keybinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.jacsl.rocketboots",
                 InputUtil.Type.KEYSYM,
@@ -27,10 +26,10 @@ public class ClientEntrypoint implements ClientModInitializer {
                 "category.jacsl.custom"
         ));
 
-        //ClientTickEvents.END_CLIENT_TICK.register(client -> {
-         //   while (keybinding.wasPressed()) {
-
-        //    }
-        //});
+        ClientTickEvents.END_CLIENT_TICK.register(client -> {
+            while (keybinding.wasPressed()) {
+                System.out.println("AAAAAAAAAA");
+            }
+        });
     }
 }

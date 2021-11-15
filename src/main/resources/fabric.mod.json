@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.fabricmc.jacsl.Main"
+    ],
+    "client": [
+      "net.fabricmc.jacsl.ClientEntrypoint"
     ]
   },
   "mixins": [
