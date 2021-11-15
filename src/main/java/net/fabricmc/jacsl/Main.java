@@ -11,9 +11,11 @@ import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.jacsl.enchantments.KnockbackiumEnchantment;
 import net.fabricmc.jacsl.items.*;
 import net.fabricmc.jacsl.materials.Aerogel;
+import net.fabricmc.jacsl.materials.Rocket;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -36,7 +38,9 @@ public class Main implements ModInitializer {
 	public static final Item NEW_ITEM = new NewItem(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item TELEPORT_ITEM = new DiskOfTeleportation(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item AEROGEL_CUBE = new AerogelCube(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
-	//public static final Item ROCKET_SHOES = new RocketShoes(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+
+	public static final ArmorMaterial ROCKET = new Rocket();
+	public static final Item ROCKET_SHOES = new RocketShoes(ROCKET, EquipmentSlot.FEET, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
 
 	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, 2f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
@@ -62,7 +66,7 @@ public class Main implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MODID, "packed_snowball"), packedSnowballItem);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_sword"), AEROGEL_SWORD);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_cube"), AEROGEL_CUBE);
-		//Registry.register(Registry.ITEM, new Identifier(MODID, "rocket_shoes"), ROCKET_SHOES);
+		Registry.register(Registry.ITEM, new Identifier(MODID, "rocket_shoes"), ROCKET_SHOES);
 
 		//Registering the aerogel blocks
 		Registry.register(Registry.BLOCK, new Identifier(MODID, "aerogel_chunks"), AEROGEL_CHUNKS);

@@ -36,7 +36,7 @@ public class Rocket implements ArmorMaterial
 
     @Override
     public String getName() {
-        return "rocket";
+        return "rocket_shoes";
     }
 
     @Override
