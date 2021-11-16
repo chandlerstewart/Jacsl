@@ -3,6 +3,7 @@ package net.fabricmc.jacsl.items;
 import net.fabricmc.jacsl.Main;
 import net.fabricmc.jacsl.entities.TeleportItemEntity;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -19,6 +20,7 @@ import java.util.List;
 
 public class DiskOfTeleportation extends Item {
 
+
     public DiskOfTeleportation(Item.Settings settings) {
         super(settings);
     }
@@ -28,11 +30,9 @@ public class DiskOfTeleportation extends Item {
         float pitch = 0.5f/(RANDOM.nextFloat()*.2f + .5f);
         ItemStack itemStack = playerEntity.getStackInHand(hand);
 
-
-        //if (!world.isClient) {
         if (!playerEntity.getItemCooldownManager().isCoolingDown(Main.TELEPORT_ITEM)) {
             playerEntity.getItemCooldownManager().set(this, 100);
-            TeleportItemEntity teleportItemEntity = new TeleportItemEntity(world, playerEntity);
+            TeleportItemEntity teleportItemEntity = new TeleportItemEntity(world, playerEntity, itemStack);
             teleportItemEntity.setItem(itemStack);
             teleportItemEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F, .5F, .5F);
             world.spawnEntity(teleportItemEntity);
@@ -49,6 +49,6 @@ public class DiskOfTeleportation extends Item {
     @Override
     public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext)
     {
-        tooltip.add(new TranslatableText("Step 1: Chuck this, Step 2: teleport").formatted(Formatting.GOLD));
+        tooltip.add(new TranslatableText("Step 1: Chuck this, Step 2: Teleport").formatted(Formatting.GOLD));
     }
 }
