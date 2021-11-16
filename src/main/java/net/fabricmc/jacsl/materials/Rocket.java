@@ -6,10 +6,10 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 
+//create a Material class(Rocket) to add to the armor item class
 public class Rocket implements ArmorMaterial
 {
-
-
+    //set the
     @Override
     public int getDurability(EquipmentSlot slot) {
         return 100;
