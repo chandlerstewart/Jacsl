@@ -1,6 +1,6 @@
 package net.fabricmc.jacsl.items;
 
-import net.fabricmc.jacsl.entities.PackedSnowballEntity;
+import net.fabricmc.jacsl.entities.HotCheetoEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,10 +12,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 
-public class PackedSnowballItem extends Item {
+public class HotCheeto extends Item {
 
   //  PlayerEntity playerEntity;
-    public PackedSnowballItem(Settings settings) {
+    public HotCheeto(Settings settings) {
         super(settings);
     }
 
@@ -27,10 +27,10 @@ public class PackedSnowballItem extends Item {
 		Optionally, you can add a cooldown to your item's right-click use, similar to Ender Pearls.
 		*/
         if (!world.isClient) {
-            PackedSnowballEntity snowballEntity = new PackedSnowballEntity(world, user);
-            snowballEntity.setItem(itemStack);
-            snowballEntity.setProperties(user, user.pitch, user.yaw, 0.0F, 1.5F, 0F);
-            world.spawnEntity(snowballEntity); // spawns entity
+            HotCheetoEntity hotCheetoEntity = new HotCheetoEntity(world, user);
+            hotCheetoEntity.setItem(itemStack);
+            hotCheetoEntity.setProperties(user, user.pitch, user.yaw, 0.0F, 1.5F, 0F);
+            world.spawnEntity(hotCheetoEntity); // spawns entity
         }
 
         user.incrementStat(Stats.USED.getOrCreateStat(this));
