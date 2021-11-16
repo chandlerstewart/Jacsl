@@ -12,18 +12,4 @@ public class RocketShoes extends ArmorItem
         //send to the ArmorItem class
         super(material, slot, settings);
     }
-
-    /*
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        EquipmentSlot equipmentSlot = MobEntity.getPreferredEquipmentSlot(itemStack);
-        ItemStack itemStack2 = user.getEquippedStack(equipmentSlot);
-        if (itemStack2.isEmpty()) {
-            user.equipStack(equipmentSlot, itemStack.copy());
-            itemStack.setCount(0);
-            return TypedActionResult.success(itemStack, world.isClient());
-        } else {
-            return TypedActionResult.fail(itemStack);
-        }
-    }*/
 }

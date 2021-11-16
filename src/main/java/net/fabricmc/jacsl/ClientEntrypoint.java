@@ -38,9 +38,8 @@ public class ClientEntrypoint implements ClientModInitializer {
             while (keybinding.wasPressed())
             {
                 PlayerEntity user = MinecraftClient.getInstance().player;
-                float pitch = 1.5f / ((float) Math.random() * .4f + .8f);
                 user.setVelocity(user.getVelocity().x,.5f,user.getVelocity().z);
-                user.playSound(SoundEvents.ENTITY_FIREWORK_ROCKET_LAUNCH, 1.0f, pitch);
+                user.playSound(SoundEvents.ENTITY_FIREWORK_ROCKET_LAUNCH, 1.0f, 1.0f);
             }
         });
     }
