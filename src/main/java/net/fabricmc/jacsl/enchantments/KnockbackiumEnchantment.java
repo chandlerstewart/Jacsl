@@ -3,7 +3,6 @@ package net.fabricmc.jacsl.enchantments;
 import net.minecraft.enchantment.KnockbackEnchantment;
 import net.minecraft.entity.*;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -15,11 +14,14 @@ public class KnockbackiumEnchantment extends KnockbackEnchantment {
         super(Rarity.UNCOMMON, EquipmentSlot.MAINHAND);
     }
 
+    //don't want to kill the thing, just send it flying
     @Override
     public int getMinPower(int level) {
         return 1;
     }
 
+    //Overrides the normal Knockback enchantment's onTargetDamaged function which is called
+    //  when the player hits an entity
     @Override
     public void onTargetDamaged(LivingEntity user, Entity target, int level) {
         if(target instanceof LivingEntity) {
@@ -34,15 +36,16 @@ public class KnockbackiumEnchantment extends KnockbackEnchantment {
             primeTnt(user.getEntityWorld(), target.getBlockPos(), user);
         }
 
+        //call to the actual Knockback onTargetDamaged method
         super.onTargetDamaged(user, target, level);
     }
 
     //spawns tnt when an entity is hit
     private static void primeTnt(World world, BlockPos pos, LivingEntity igniter) {
         if (!world.isClient) {
-            TntEntity tntEntity = new TntEntity(world, (double)pos.getX() + 0.5D, (double)pos.getY(), (double)pos.getZ() + 0.5D, igniter);
+            TntEntity tntEntity = new TntEntity(world, (double)pos.getX() + 0.5D, pos.getY(), (double)pos.getZ() + 0.5D, igniter);
             world.spawnEntity(tntEntity);
-            world.playSound((PlayerEntity)null, tntEntity.getX(), tntEntity.getY(), tntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
+            world.playSound(null, tntEntity.getX(), tntEntity.getY(), tntEntity.getZ(), SoundEvents.ENTITY_TNT_PRIMED, SoundCategory.BLOCKS, 1.0F, 1.0F);
         }
     }
 
