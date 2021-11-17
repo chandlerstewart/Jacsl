@@ -65,7 +65,7 @@ public class ClientEntrypoint implements ClientModInitializer {
                 PlayerEntity user = MinecraftClient.getInstance().player;
 
                 boolean isEquipped = false;
-                for (ItemStack itemStack : user.getItemsEquipped()){
+                for (ItemStack itemStack : user.getArmorItems()){
                     Item item = itemStack.getItem();
 
                     if (item.toString() == "Mining Helmet") isEquipped = true;
