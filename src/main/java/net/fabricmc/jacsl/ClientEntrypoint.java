@@ -12,6 +12,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
@@ -62,8 +63,22 @@ public class ClientEntrypoint implements ClientModInitializer {
 
             if (miningHelmetActivated == 1) {
                 PlayerEntity user = MinecraftClient.getInstance().player;
-                user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION));
-            } else if (miningHelmetActivated == 0) {
+
+                boolean isEquipped = false;
+                for (ItemStack itemStack : user.getItemsEquipped()){
+                    Item item = itemStack.getItem();
+
+                    if (item.toString() == "Mining Helmet") isEquipped = true;
+                }
+
+
+                if (isEquipped)
+                    user.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION));
+                else
+                    miningHelmetActivated = 0;
+            }
+
+            if (miningHelmetActivated == 0) {
                 PlayerEntity user = MinecraftClient.getInstance().player;
                 user.removeStatusEffect(StatusEffects.NIGHT_VISION);
             }

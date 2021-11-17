@@ -13,6 +13,7 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.Tag;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -28,6 +29,7 @@ import java.util.List;
 public class Mining_Helmet extends ArmorItem{
 
     private DefaultedList<ItemStack> equippedArmor;
+    private boolean isEquipped = false;
 
     public Mining_Helmet(ArmorMaterial material, EquipmentSlot slot, Item group) {
         super(material, slot, new Item.Settings().group(Main.NEW_ITEM_GROUP));
@@ -52,8 +54,9 @@ public class Mining_Helmet extends ArmorItem{
         }
     }*/
 
-    private boolean isHelmet(Item item){
-        return true; //for now
+    @Override
+    public String toString() {
+        return "Mining Helmet";
     }
 
     @Override
@@ -63,4 +66,5 @@ public class Mining_Helmet extends ArmorItem{
         tooltip.add(new TranslatableText("A shining light in the darkness").formatted(Formatting.AQUA));
 
     }
+
 }
