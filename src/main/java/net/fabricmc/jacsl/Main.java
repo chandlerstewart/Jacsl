@@ -45,17 +45,16 @@ public class Main implements ModInitializer {
 	public static final Item NEW_ITEM = new NewItem(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item TELEPORT_ITEM = new DiskOfTeleportation(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item AEROGEL_CUBE = new AerogelCube(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
-
-	//Making the Rocket Boots
-	//create an armor material named rocket
 	public static final Item HOT_CHEETO = new HotCheeto(new FabricItemSettings().group(Main.NEW_ITEM_GROUP).maxCount(16));
 	public static final ArmorMaterial ROCKET = new Rocket();
-	
-  //create an Item Rocket Shoes to set the parameters(rocket, feet slot, and main item group setting)
 	public static final Item ROCKET_SHOES = new RocketShoes(ROCKET, EquipmentSlot.FEET, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
-	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, 2f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 	public static final Item MINING_HELMET = new ArmorItem(HelmetMaterial.MINEHELM, EquipmentSlot.HEAD, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
+	//public static final Tag<Item> HELMETTAG = TagRegistry.item(new Identifier("jacsl", "helmettag"));
+
+	//public static final StatusEffect NIGHT_VISION = new NightVisionMixin();
+
+	//public static final Item ROCKET_SHOES = new RocketShoes(new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
 	public static final ToolItem AEROGEL_SWORD = new AerogelSword(Aerogel.INSTANCE, 1, -0.5f, new FabricItemSettings().group(Main.NEW_ITEM_GROUP));
 
@@ -78,8 +77,6 @@ public class Main implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier(MODID, "hot_cheeto"), HOT_CHEETO);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_sword"), AEROGEL_SWORD);
 		Registry.register(Registry.ITEM, new Identifier(MODID, "aerogel_cube"), AEROGEL_CUBE);
-
-		//Register the item to be able to use it in the game. The path connects to en_us json file
 		Registry.register(Registry.ITEM, new Identifier(MODID, "rocket_shoes"), ROCKET_SHOES);
 
 		//Registering the aerogel blocks
