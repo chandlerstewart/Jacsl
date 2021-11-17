@@ -1,6 +1,6 @@
 {
   "parent": "item/handheld",
   "textures": {
-    "layer0": "jacsl:item/packed_snowball"
+    "layer0": "jacsl:item/hot_cheeto"
   }
 }
