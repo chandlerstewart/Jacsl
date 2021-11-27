@@ -1,3 +1,7 @@
+//Lucas Pillaga
+//project JACSL
+
+
 package net.fabricmc.jacsl.entities;
 
 
@@ -23,6 +27,7 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 import net.fabricmc.jacsl.Main;
 
+//Creates class from thrownItemEntity
 public class HotCheetoEntity extends ThrownItemEntity {
     public HotCheetoEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
@@ -50,7 +55,7 @@ public class HotCheetoEntity extends ThrownItemEntity {
     }
 */
 
-
+// this ensure it does the damage I want it to do and if I am hitting something
     protected void onEntityHit(EntityHitResult entityHitResult) { // called on entity hit.
         super.onEntityHit(entityHitResult);
         Entity entity = entityHitResult.getEntity(); // sets a new Entity instance as the EntityHitResult (victim)
