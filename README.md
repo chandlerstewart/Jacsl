@@ -28,3 +28,4 @@ Mod Features:
      - From the main menu, press Singleplayer
      - Create a new world and change "Game Mode" to "Creative". All other options may be left to the user's discretion
      - After world creation has finished, the custom items are accessible by opening the items window ("E" on keyboard), Navigating to page 2 of the window by pressing the right arrow at the top, In the pane that opens will be all custom items created for the purposes of this project
+     - Custom enchantments are accessible in the "Combat" tab of the items window
