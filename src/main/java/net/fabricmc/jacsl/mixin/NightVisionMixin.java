@@ -1,3 +1,5 @@
+// Main Contributor: Sam Toje
+
 package net.fabricmc.jacsl.mixin;
 
 import javafx.scene.effect.Effect;

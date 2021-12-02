@@ -1,3 +1,5 @@
+// Main Contributor: Josh Cox
+
 package net.fabricmc.jacsl.materials;
 
 import net.fabricmc.jacsl.Main;

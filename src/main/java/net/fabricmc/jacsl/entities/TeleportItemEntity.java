@@ -1,3 +1,5 @@
+// Main Contributor: Chandler Stewart
+
 package net.fabricmc.jacsl.entities;
 
 import net.fabricmc.jacsl.Main;
@@ -24,33 +26,36 @@ public class TeleportItemEntity extends ThrownItemEntity {
     private LivingEntity owner;
     private ItemStack itemStack;
 
+    // Called when entity collides with a block or enemy
     @Override
     protected void onCollision(HitResult hitResult) {
 
         this.world.sendEntityStatus(this, (byte)3);
 
+        // get position of collision location
         double xpos = hitResult.getPos().x;
         double ypos = hitResult.getPos().y;
         double zpos = hitResult.getPos().z;
 
-        playerEntity.teleport(xpos, ypos, zpos);
+        playerEntity.teleport(xpos, ypos, zpos); // teleport the player to collision location
 
         this.remove();
 
-
         Boolean hasBoomEnchant = EnchantmentHelper.getLevel(Main.TELPORTATIONBOOM_ENCHANTMENT, itemStack) > 0;
-        Boolean hasKnockbackEnchant = EnchantmentHelper.getLevel(Main.TELPORTATIONKNOCKBACK_ENCHANTMENT, itemStack) > 0;
+        Boolean hasKnockupEnchant = EnchantmentHelper.getLevel(Main.TELPORTATIONKNOCKBACK_ENCHANTMENT, itemStack) > 0;
 
         float power = 4.0F;
 
+        // if Explosion enchant is active, create an explosion
         if (hasBoomEnchant) {
            world.createExplosion(owner, xpos, ypos, zpos, power, Explosion.DestructionType.DESTROY);
         }
 
-        if (hasKnockbackEnchant){
+        // if Knockup enchant is active, knock all entities in area up in the air
+        if (hasKnockupEnchant){
             Random rand = new Random();
             List <Entity> affectedEntites = getAffectedEntites(power, xpos, ypos, zpos);
-            for (Entity entity : affectedEntites)
+            for (Entity entity : affectedEntites) // loop through all affected entities and send them flying in the air
             {
                 entity.setVelocity(rand.nextDouble() * 10 - 5, rand.nextDouble() * 5, rand.nextDouble() * 10 - 5);
             }
@@ -60,6 +65,7 @@ public class TeleportItemEntity extends ThrownItemEntity {
     }
 
 
+    // This function obtains all affected entites within a radius given power of knockup and x,y,z locations
     private List<Entity> getAffectedEntites(float power, double x, double y, double z)
     {
         float q = power * 2.0F;

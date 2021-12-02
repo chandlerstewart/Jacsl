@@ -1,3 +1,5 @@
+// Main Contributor: Sam Toje
+
 package net.fabricmc.jacsl.util;
 
 import net.fabricmc.fabric.api.tag.TagRegistry;

@@ -1,3 +1,5 @@
+// Main Contributor: Sam Toje
+
 package net.fabricmc.jacsl.materials;
 
 

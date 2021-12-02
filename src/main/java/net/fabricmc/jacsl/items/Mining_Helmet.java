@@ -1,3 +1,5 @@
+// Main Contributor: Sam Toje
+
 package net.fabricmc.jacsl.items;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;

@@ -1,3 +1,5 @@
+// Main Contributor: Josh Cox
+
 package net.fabricmc.jacsl.enchantments;
 
 import net.minecraft.enchantment.KnockbackEnchantment;

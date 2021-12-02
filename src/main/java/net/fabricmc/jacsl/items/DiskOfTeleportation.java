@@ -1,3 +1,5 @@
+// Main Contributor: Chandler Stewart
+
 package net.fabricmc.jacsl.items;
 
 import net.fabricmc.jacsl.Main;
@@ -25,23 +27,23 @@ public class DiskOfTeleportation extends Item {
         super(settings);
     }
 
+    // When the item is right-clicked it calls this use function
+    // Player teleport implementation is available in TeleportItemEntity class
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand){
         float pitch = 0.5f/(RANDOM.nextFloat()*.2f + .5f);
         ItemStack itemStack = playerEntity.getStackInHand(hand);
 
-        if (!playerEntity.getItemCooldownManager().isCoolingDown(Main.TELEPORT_ITEM)) {
-            playerEntity.getItemCooldownManager().set(this, 100);
+        if (!playerEntity.getItemCooldownManager().isCoolingDown(Main.TELEPORT_ITEM)) { // If item not on cooldown
+            playerEntity.getItemCooldownManager().set(this, 100); // Set cooldown to 10 seconds
             TeleportItemEntity teleportItemEntity = new TeleportItemEntity(world, playerEntity, itemStack);
             teleportItemEntity.setItem(itemStack);
-            teleportItemEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F, .5F, .5F);
+            teleportItemEntity.setProperties(playerEntity, playerEntity.pitch, playerEntity.yaw, 0.0F, .5F, .5F); // Sets the direction and speed of item
             world.spawnEntity(teleportItemEntity);
             playerEntity.playSound(SoundEvents.ENTITY_ENDERMAN_TELEPORT, 1.0f, pitch);
         } else {
-            // add in message to send cooldown notification to player, below line doesnt seem to work
             playerEntity.sendMessage(new LiteralText("Teleportation on Cooldown"), false);
         }
-        //}
 
         return TypedActionResult.success(playerEntity.getStackInHand(hand), world.isClient());
     }

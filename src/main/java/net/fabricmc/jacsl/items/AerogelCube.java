@@ -1,3 +1,5 @@
+// Main Contributor: Josh Cox
+
 package net.fabricmc.jacsl.items;
 
 import net.minecraft.client.item.TooltipContext;

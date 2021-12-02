@@ -1,3 +1,5 @@
+// Main Contributor: Alex Lopez
+
 package net.fabricmc.jacsl.materials;
 
 import net.minecraft.entity.EquipmentSlot;
